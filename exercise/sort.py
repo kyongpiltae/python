@@ -9,6 +9,8 @@ import unittest
 명확성, 
 유한성, 
 효율성 : 시간,공간
+선택,삽입,버블,합병,퀵
+현재 인텍스 , 비교인덱스
 '''
 
 
@@ -25,8 +27,6 @@ def swap(input,start=0):
     input[i+1] = temp
 
 
-
-
 def selection(input):
     N=len(input)
     print([*range(N)])
@@ -41,10 +41,7 @@ def selection(input):
         input[i] = temp
     return input
 
-                
-            
-    pass
-
+  
 # bubule
 def buble(input):
     N= len(input)
@@ -60,7 +57,19 @@ def buble(input):
     
 #insertion
 def insertion(input):
-    pass
+    N= len(input)
+    print("size = {0} ".format(N))
+    print(input)
+    for start in range(1,N): #current index
+        for i in range(start): # compare index
+            if input[start] < input[i]:
+                temp = input[start]
+                del input[start]
+                input.insert(i,temp)
+                
+    print(input)
+
+    return input
 
 
 
@@ -72,6 +81,7 @@ def insertion(input):
 # Linear Time
 #complexity (O(N))
 
-output=selection(input[:])
+#output=selection(input[:])
+output=insertion(input[:])
 print(output[:])
 
